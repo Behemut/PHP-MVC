@@ -8,12 +8,17 @@ class Customer extends ActiveRecord
     public $dui;
     public $direccion;
 
+    public $codPlan;
+
     public function __construct($args = [])
     {
         $this->codigo = $args['codigo'] ?? NULL;
         $this->nombre = $args['nombre'] ?? "";
         $this->dui = $args['dui'] ?? "";
         $this->direccion = $args['direccion'] ?? "";
+        $this->codPlan = $args['codPlan'] ?? "";
+
+
     }
 
     public function getCustomer()
@@ -26,6 +31,20 @@ class Customer extends ActiveRecord
         }
         return [];
     }
+
+    public function getPlans(){
+        $query = 'SELECT * FROM plan';
+        $result = self::$db->query($query);
+        if ($result->num_rows > 0) {
+            $valor = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $valor;
+        }
+        return [];
+    }
+
+
+
+
     public function postCustomer()
     {
         $query = 'INSERT into cliente(nombre,dui,direccion) VALUES ("' . $this->nombre . '","' . $this->dui .'","' . $this->direccion .  '")';
@@ -67,9 +86,10 @@ class Customer extends ActiveRecord
         self::$db->query($query);
     }
 
-
-
-
+    public function postAddPlan()
+    {
+        $query = 'INSERT into cliente_plan(codigo_cliente,codigo_plan) VALUES ("' . $this->codigo . '","' . $this->codPlan . '")';
+        self::$db->query($query);
+    }
 }
-
 ?>

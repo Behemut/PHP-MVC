@@ -11,6 +11,7 @@ class CustomerController{
     {
         $clients= new Customer();
         $clientes = $clients->getCustomer();
+        
         $router->render('Customers/home', ['customers' => $clientes]);
     }
     public static function postCustomer(Router $router)
@@ -40,7 +41,8 @@ class CustomerController{
         $id = $_GET['id'] ?? null;
         $clients= new Customer();
         $clientes = $clients->getEditCustomer($id);
-        $router->render('Customers/edit', ['customers' => $clientes]);
+        $planes = $clients->getPlans();
+        $router->render('Customers/edit', ['customers' => $clientes, 'plans'=>$planes]); 
     }
 
     public static function postEditCustomer(Router $router)
@@ -50,6 +52,22 @@ class CustomerController{
         $clients->postEditCustomer($id);
         $router->redirect('/');
     }
+    public static function  postAddPlan(Router $router)
+    {
+        $id = $_POST['id'] ?? null;
+        $clients= new Customer($_POST);
+        $clients->postAddPlan($id);
+        $router->redirect('/');
+    }
+
+
+
+
+
+
+
+
+
     
 }
 
