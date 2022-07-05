@@ -29,7 +29,7 @@ class Plan extends ActiveRecord
         self::$db->query($query);
     }
 
-    public function getPlanById($id)
+    public function getDeletePlan($id)
     {
         $query = 'SELECT * FROM plan WHERE codigo=' . $id;
         $result = self::$db->query($query);
@@ -39,7 +39,16 @@ class Plan extends ActiveRecord
         }
         return [];
     }
-
+    public function getEditPlan($id)
+    {
+        $query = 'SELECT * FROM plan WHERE codigo=' . $id;
+        $result = self::$db->query($query);
+        if ($result->num_rows > 0) {
+            $valor = $result->fetch_assoc();
+            return $valor;
+        }
+        return [];
+    }
     public function postDeletePlan($id)
     {
         $query = 'DELETE FROM plan WHERE codigo=' . $id;

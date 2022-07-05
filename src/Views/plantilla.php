@@ -18,15 +18,14 @@
 </head>
 
 <header>
-<nav class="flex items-center justify-between flex-wrap bg-blue-700 p-6">
+<nav class="flex items-center justify-between flex-wrap bg-blue-900 p-6">
   <div class="flex items-center flex-shrink-0 text-white mr-6">
     <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" >
   
     </svg>
     
     
-    
-    
+
         <span class="font-semibold text-xl tracking-tight">Ejercicio PHP   <i class="fa-solid fa-person-chalkboard"></i></span>
   </div>
   <div class="block lg:hidden">
@@ -51,4 +50,4 @@ echo "<a class='block mt-4 lg:inline-block lg:mt-0 text-white hover:text-blue-40
 
 </header>
 
-<body class="bg-gradient-to-br from-blue-600 via-blue-500 to-blue-300">
+<body class="bg-gradient-to-br from-blue-800 via-blue-600 to-blue-400">

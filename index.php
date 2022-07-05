@@ -17,7 +17,11 @@ $router = new Router();
 
 
     $router->get('/plan',[PlanController::class,'getPlan']);
-
+    $router->post('/plan',[PlanController::class,'postPlan']);
+    $router->get('/delete/plan',[PlanController::class,'getDeletePlan']);
+    $router->post('/delete/plan',[PlanController::class,'postDeletePlan']);
+    $router->get('/edit/plan',[PlanController::class,'getEditPlan']);
+    $router->post('/edit/plan',[PlanController::class,'postEditPlan']);
 
     $router->comprobarRutas();
 
