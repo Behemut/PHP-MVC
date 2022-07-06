@@ -14,12 +14,10 @@ $router = new Router();
     $router->post('/delete/customer',[CustomerController::class,'postDeleteCustomer']);
     //$router->get('/edit/customer',[CustomerController::class,'getEditCustomer']);
     //$router->post('/edit/customer',[CustomerController::class,'postEditCustomer']);
-
-
     $router->get('/queries/customer',[CustomerController::class,'getEditCustomer']);
     $router->post('/queries/customer',[CustomerController::class,'postAddPlan']);
-
-
+    $router->get('/plans/customer',[CustomerController::class,'getCustomerPlan']);
+    $router->post('/plans/customer',[CustomerController::class,'getCustomerPlan']);
     $router->get('/plan',[PlanController::class,'getPlan']);
     $router->post('/plan',[PlanController::class,'postPlan']);
     $router->get('/delete/plan',[PlanController::class,'getDeletePlan']);

@@ -11,8 +11,7 @@ class CustomerController{
     {
         $clients= new Customer();
         $clientes = $clients->getCustomer();
-        
-        $router->render('Customers/home', ['customers' => $clientes]);
+        $router->render('Customers/home', ['customers' => $clientes  ]);
     }
     public static function postCustomer(Router $router)
     {
@@ -25,8 +24,25 @@ class CustomerController{
         $id = $_GET['id'] ?? null;
         $clients= new Customer();
         $clientes = $clients->getDeleteCustomer($id);
+        
         $router->render('Customers/delete', ['customers' => $clientes]);
     }
+
+
+    public static function getCustomerPlan(Router $router){
+        $id = $_GET['id'] ?? null;
+        $clients= new Customer();
+        $planes = $clients->getCustomerPlan($id);
+        $cliente = $clients->getEditCustomer($id);
+        $router->render('Customers/consulting', ['planes' => $planes, 'cliente' => $cliente]);
+    }
+
+
+
+
+
+
+
 
     public static function postDeleteCustomer(Router $router)
     {

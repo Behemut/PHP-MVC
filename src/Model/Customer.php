@@ -42,6 +42,16 @@ class Customer extends ActiveRecord
         return [];
     }
 
+    public function getCustomerPlan($id){
+        $query='SELECT * FROM plan WHERE codigo in (SELECT codigo_plan FROM cliente_plan WHERE codigo_cliente=' .$id. ')';
+        $result = self::$db->query($query);
+        if ($result->num_rows > 0) {
+            $valor = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $valor;
+        }
+        return [];
+    }
+
 
 
 
@@ -62,6 +72,32 @@ class Customer extends ActiveRecord
         return [];
     }
 
+
+
+    public function getCustomerPlans($id){
+        $query='SELECT * FROM plan WHERE codigo in (SELECT codigo_plan FROM cliente_plan WHERE codigo_cliente=' . $id . ')';
+        $result = self::$db->query($query);
+        if ($result->num_rows > 0) {
+            $valor = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $valor;
+        }
+        return [];
+    }
+        
+
+
+     public function getActualPlan($id){
+
+        $query = 'SELECT * FROM plan WHERE codigo=' . $id;
+        $result = self::$db->query($query);
+        if ($result->num_rows > 0) {
+            $valor = $result->fetch_assoc();
+            return $valor; 
+        }
+     }       
+
+
+    
     public function postDeleteCustomer($id)
     {
         $query = 'DELETE FROM cliente WHERE codigo=' . $id;
