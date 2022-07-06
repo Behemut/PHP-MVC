@@ -35,10 +35,13 @@ include   "../Ejercicio4/src/Views/plantilla.php";
                     <th class=" border border-slate-300 dark:border-blue-800 font-semibold p-4  dark:text-blue-800 text-center">Nombre</th>
                     <th class=" border border-slate-300 dark:border-blue-800 font-semibold p-4  dark:text-blue-800 text-center">DUI</th>
                     <th class=" border border-slate-300 dark:border-blue-800 font-semibold p-4  dark:text-blue-800 text-center">Direccion</th>
-                  
-                    <th class=" border border-slate-300 dark:border-blue-800 font-semibold p-4  dark:text-blue-800 text-center">Accion planes <i class="fa-solid fa-mobile"></i>    </th>
-
+                    <th class=" border border-slate-300 dark:border-blue-800 font-semibold p-4  dark:text-blue-800 text-center">Añadir plan <i class="fa-solid fa-mobile"></i>    </th>
+                    <th class=" border border-slate-300 dark:border-blue-800 font-semibold p-4  dark:text-blue-800 text-center">Consultar planes <i class="fa-solid fa-mobile"></i>    </th>
+                   
+                    <th class=" border border-slate-300 dark:border-blue-800 font-semibold p-4  dark:text-blue-800 text-center">Eliminar Cliente</th>
                 </tr>
+            
+
             </thead>
             <tbody>
                 <?php
@@ -48,10 +51,11 @@ include   "../Ejercicio4/src/Views/plantilla.php";
                     echo "<td class='border border-slate-400 p-4 text-slate-500 dark:text-blue-700 font-semibold '>" . $customer['nombre'] . "</td>";
                     echo "<td class='border border-slate-400 p-4 text-slate-500 dark:text-blue-700 font-semibold '>" . $customer['dui'] . "</td>";
                     echo "<td class='border border-slate-400 p-4 text-slate-500 dark:text-blue-700 font-semibold '>" . $customer['direccion'] . "</td>";
-   
-                    echo "<td class='border border-slate-300 dark:border-slate-700 p-4 text-slate-500 text-blue-800 cursor-pointer font-bold' ><a href='" . $_ENV['HOST'] . "/queries/customer?id="    . $customer['codigo'] . "'><i class='fa-solid fa-globe'></i>  Añadir Plan</a>"; //<a href='" . $_ENV['HOST'] . "/queries/customer?id="    . $customer['codigo'] . "'>Consultar Planes</a>
-                    echo "<br><br><a href='" . $_ENV['HOST'] . "/delete/customer?id=" . $customer['codigo'] . "'> <i class='fa-solid fa-trash text-red-600'></i>  Eliminar  </a>";
-                    echo "<br><br><a href='" . $_ENV['HOST'] . "/plans/customer?id=" . $customer['codigo'] . "'> <i class='fa-solid fa-pen-to-square text-green-600'></i>  Ver planes </a></td>";
+                    echo "<td class='border border-slate-300 dark:border-slate-700 p-4 text-slate-500 text-blue-800 cursor-pointer font-bold' ><a href='" . $_ENV['HOST'] . "/queries/customer?id="    . $customer['codigo'] . "'><i class='fa-solid fa-globe'></i> Añadir plan</a></td>"; //<a href='" . $_ENV['HOST'] . "/queries/customer?id="    . $customer['codigo'] . "'>Consultar Planes</a>
+                    echo "<td class='border border-slate-300 dark:border-slate-700 p-4 text-slate-500 text-blue-800 cursor-pointer font-bold' ><a href='" . $_ENV['HOST'] . "/plans/customer?id="    . $customer['codigo'] . "'><i class='fa-solid fa-globe'></i>  Consultar Planes</a></td>"; //<a href='" . $_ENV['HOST'] . "/queries/customer?id="    . $customer['codigo'] . "'>Consultar Planes</a>
+                    echo "<td class='border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-red-800 cursor-pointer' >";
+                    echo"<form method='post' action='" . $_ENV['HOST'] . "/delete/customer". "'> <button class='bg-red-600 text-white  py-2 px-4 rounded'><i class='fa-solid fa-trash text-slate-50'>   Eliminar </i></button></td>";
+                    echo " <input type='hidden' name='id' value='". $customer['codigo'] .  "' ></form>";
                     echo "</tr>";
                 }
                 ?>

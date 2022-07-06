@@ -17,10 +17,7 @@ include   "../Ejercicio4/src/Views/plantilla.php";
                 <input class="border py-2 px-3 text-grey-darkest" type="text" name="dui" value="<?php echo $customers['dui'] ?>" disabled>
             </div>
 
-            <div class="flex flex-col mb-4">
-                <label class="mb-2 uppercase font-bold text-lg text-slate-600">Descripcion del plan</label>
-                <input class="border py-2 px-3 text-grey-darkest" type="text" name="dui" value="<?php echo $plans['descripcion'] ?>" disabled>
-            </div>
+      
 
 
             <input class="block bg-red-600   text-slate-50 uppercase text-lg mx-auto p-4 rounded font-bold" type="submit" value="Eliminar">

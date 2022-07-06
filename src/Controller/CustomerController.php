@@ -38,12 +38,6 @@ class CustomerController{
     }
 
 
-
-
-
-
-
-
     public static function postDeleteCustomer(Router $router)
     {
         $id = $_POST['id'] ?? null;
@@ -51,6 +45,16 @@ class CustomerController{
         $clients->postDeleteCustomer($id);
         $router->redirect('/');
     }
+
+    public static function postDeleteCustomerPlan(Router $router){
+        $codPlan = $_POST['codPlan'] ?? null;
+        $codCliente = $_POST['codCliente'] ?? null;
+
+        $clients= new Customer();
+        $clients->postDeleteCustomerPlan($codCliente, $codPlan);
+        $router->redirect('/');
+    }
+
 
     public static function getEditCustomer(Router $router)
     {

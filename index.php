@@ -10,8 +10,14 @@ use MVC\Router;
 $router = new Router();
     $router->get('/',[CustomerController::class,'getCustomer']);
     $router->post('/',[CustomerController::class,'postCustomer']);
-    $router->get('/delete/customer',[CustomerController::class,'getDeleteCustomer',   ]);
+    $router->get('/delete/customer',[CustomerController::class,'getDeleteCustomer'  ]);
     $router->post('/delete/customer',[CustomerController::class,'postDeleteCustomer']);
+
+
+    $router->post('/delete/customer/plan',[CustomerController::class,'postDeleteCustomerPlan']);
+
+
+
     //$router->get('/edit/customer',[CustomerController::class,'getEditCustomer']);
     //$router->post('/edit/customer',[CustomerController::class,'postEditCustomer']);
     $router->get('/queries/customer',[CustomerController::class,'getEditCustomer']);

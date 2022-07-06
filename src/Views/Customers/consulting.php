@@ -6,19 +6,13 @@ include   "../Ejercicio4/src/Views/plantilla.php";
 
 
 
-
-
-
-
-
     <div class="table-responsive">
         <table class="border-separate table-auto w-full border border-slate-200 dark:border-slate-100 bg-white dark:bg-slate-100 text-sm shadow-sm">
             <thead class="bg-slate-50 dark:bg-slate-200">
                 <tr>
                     <th class=" border border-slate-300 dark:border-blue-800 font-semibold p-4  dark:text-blue-800 text-center">Codigo</th>
                     <th class=" border border-slate-300 dark:border-blue-800 font-semibold p-4  dark:text-blue-800 text-center">Descripcion</th>
-                    <th class=" border border-slate-300 dark:border-blue-800 font-semibold p-4  dark:text-blue-800 text-center">Accion planes <i class="fa-solid fa-mobile"></i>    </th>
-
+                    <th class=" border border-slate-300 dark:border-blue-800 font-semibold p-4  dark:text-blue-800 text-center">Accion planes <i class="fa-solid fa-mobile"></i></th>
                 </tr>
             </thead>
             <tbody>
@@ -27,8 +21,10 @@ include   "../Ejercicio4/src/Views/plantilla.php";
                     echo "<tr>";
                     echo "<td class='border border-slate-400 p-4 text-slate-500 dark:text-blue-700 font-semibold '>" . $plan['codigo'] . "</td>";
                     echo "<td class='border border-slate-400 p-4 text-slate-500 dark:text-blue-700 font-semibold '>" . $plan['descripcion'] . "</td>";
-                    echo "<td class='border border-slate-300 dark:border-slate-700 p-4 text-slate-500 text-blue-800 cursor-pointer font-bold' ><a href='" . $_ENV['HOST'] . "/plans/customer?id=" . $plan['codigo'] . "'> <i class='fa-solid fa-trash text-red-600'></i>  Eliminar plan</a></td>";
-                    
+                    echo "<td class='border border-slate-400  text-slate-500 dark:text-red-800 cursor-pointer' >";
+                    echo"<form method='post' action='" . $_ENV['HOST'] . "/delete/customer/plan". "'> <button class='bg-red-600 text-white  py-2 px-4 rounded'><i class='fa-solid fa-trash text-slate-50'>   Eliminar </i></button></td>";
+                    echo " <input type='hidden' name='codPlan' value='". $plan['codigo'] .  "' >";
+                    echo " <input type='hidden' name='codCliente' value='". $cliente['codigo'] .  "' ></form>";
                     echo "</tr>";
                 }
                 ?>

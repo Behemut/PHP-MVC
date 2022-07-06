@@ -84,8 +84,6 @@ class Customer extends ActiveRecord
         return [];
     }
         
-
-
      public function getActualPlan($id){
 
         $query = 'SELECT * FROM plan WHERE codigo=' . $id;
@@ -96,14 +94,16 @@ class Customer extends ActiveRecord
         }
      }       
 
-
-    
     public function postDeleteCustomer($id)
     {
         $query = 'DELETE FROM cliente WHERE codigo=' . $id;
         self::$db->query($query);
     }
 
+    public function postDeleteCustomerPlan($codCliente, $codPlan){
+        $query='DELETE FROM cliente_plan WHERE codigo_cliente=' . $codCliente . ' AND codigo_plan=' . $codPlan;
+        self::$db->query($query);
+    }
 
     public function getEditCustomer($id)
     {
